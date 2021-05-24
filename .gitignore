@@ -1,0 +1,6 @@
+config/local.neon
+.idea
+.docker/mysql
+vendor
+node_modules
+www/assets
