@@ -15,7 +15,22 @@ Requirements
 ------------
 
 - Web Project for Nette 3.1 requires PHP 7.2
+- Node.js 12
 
+
+Installation (locally)
+------------
+
+The best way to install Web Project locally is using Docker. If you don't have Docker yet,
+download it following [the instructions](https://www.docker.com/products/docker-desktop). Then use command:
+
+	git clone --depth 1 https://github.com/evromalarkey/nette-vite.git . && npm i
+
+That downloads the project from Github, installs `package.json` dependencies with Vite, and runs composer installation via Docker. After that you can serve your project from localhost
+
+	npx run nette:dev
+
+Js and Css files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
 
 Installation
 ------------
@@ -23,11 +38,10 @@ Installation
 The best way to install Web Project is using Composer. If you don't have Composer yet,
 download it following [the instructions](https://doc.nette.org/composer). Then use command:
 
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
+	composer install
 
 
-Make directories `temp/` and `log/` writable.
+Make directories `temp/` and `log/` writable. 
 
 
 Web Server Setup
