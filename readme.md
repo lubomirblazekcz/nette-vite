@@ -16,6 +16,7 @@ Requirements
 
 - Web Project for Nette 3.1 requires PHP 7.2
 - Node.js 12
+- Docker
 
 
 Installation (locally)
@@ -31,6 +32,8 @@ That downloads the project from Github, installs `package.json` dependencies wit
 	npx run nette:dev
 
 Js and Css files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
+
+> On Windows is recommended to use WSL2 to run everything, it's the best approach. Otherwise, the scripts inside package.json are working only in PowerShell.
 
 Installation
 ------------

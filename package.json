@@ -7,8 +7,8 @@
     "vite:dev": "npx vite",
     "vite:build": "npx vite build",
     "vite:serve": "npx vite preview",
-    "composer:install": "docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install",
-    "composer:update": "docker run --rm --interactive --tty --volume $PWD:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update"
+    "composer:install": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install",
+    "composer:update": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update"
   },
   "dependencies": {
     "nette-forms": "^3.2.0"

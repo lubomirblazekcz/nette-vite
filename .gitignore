@@ -1,4 +1,3 @@
-config/local.neon
 .idea
 .docker/mysql
 vendor
