@@ -33,7 +33,7 @@ That downloads the project from Github, installs `package.json` dependencies wit
 
 Js and Css files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
 
-> On Windows it's recommended to use WSL2 to run everything, it's the best approach. Otherwise, some scripts inside package.json are working only in PowerShell.
+> On Windows it's recommended to use WSL2 to run everything, it's the best approach. Otherwise, some scripts inside package.json would work only in PowerShell.
 
 Installation
 ------------
