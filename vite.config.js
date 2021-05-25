@@ -12,6 +12,11 @@ const reload = {
 
 export default {
     plugins: [reload],
+    server: {
+        watch: {
+            usePolling: true
+        }
+    },
     build: {
         manifest: true,
         outDir: "www",
