@@ -19,7 +19,7 @@ Requirements
 - Docker
 
 
-Installation (locally)
+Installation with Docker
 ------------
 
 The best way to install Web Project locally is using Docker. If you don't have Docker yet,
@@ -29,11 +29,14 @@ download it following [the instructions](https://www.docker.com/products/docker-
 
 That downloads the project from Github, installs `package.json` dependencies with Vite, and runs composer installation via Docker. After that you can serve your project from localhost
 
-	npx run nette:dev
+	npm run nette:dev
 
 Js and Css files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
 
-> On Windows it's recommended to use WSL2 to run everything, it's the best approach. Otherwise, some scripts inside package.json would work only in PowerShell.
+> On Windows it's recommended to use WSL2 to run everything (Docker, Node.js via nvm), it's the best approach. Otherwise, some docker scripts inside package.json would work only in PowerShell. 
+
+> When correct Node.js version is set in PhpStorm (WSL2 on Windows), you can use build-in npm to install dependencies or run scripts via GUI.
+
 
 Installation
 ------------
@@ -42,7 +45,6 @@ The best way to install Web Project is using Composer. If you don't have Compose
 download it following [the instructions](https://doc.nette.org/composer). Then use command:
 
 	composer install
-
 
 Make directories `temp/` and `log/` writable. 
 
