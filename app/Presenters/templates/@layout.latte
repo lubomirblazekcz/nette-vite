@@ -10,10 +10,8 @@
 		<script type="module" src="http://localhost:3000/@vite/client"></script>
 		<script type="module" src="http://localhost:3000/src/main.js"></script>
 	{else}
-		{foreach $manifest['src/main.js']['css'] as $file}
-			<link rel="stylesheet" href="/assets/{$file}" />
-		{/foreach}
-		<script type="module" src="/assets/{$manifest['src/main.js']['file']}"></script>
+		<link rel="stylesheet" href="/assets/style.css" />
+		<script type="module" src="/assets/main.js"></script>
 	{/if}
 </head>
 

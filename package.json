@@ -4,9 +4,9 @@
     "postinstall": "npm run composer:install",
     "nette:dev": "concurrently -n=nette,vite -c=blue,yellow \"docker compose up\" \"npm run vite:dev\"",
     "nette:serve": "concurrently -n=nette,vite -c=blue,yellow \"docker compose up\" \"npm run vite:serve\"",
-    "vite:dev": "npx vite",
-    "vite:build": "npx vite build",
-    "vite:serve": "npx vite preview",
+    "vite:dev": "npx gulp serve",
+    "vite:build": "npx gulp styles:build && npx gulp scripts:build",
+    "vite:serve": "npx gulp serve:build",
     "composer:install": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install",
     "composer:update": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update"
   },
@@ -14,7 +14,15 @@
     "nette-forms": "^3.2.0"
   },
   "devDependencies": {
-    "concurrently": "^6.2.0",
-    "vite": "^2.3.4"
+    "autoprefixer": "^10.2.5",
+    "concurrently": "^6.1.0",
+    "esbuild-plugin-postcss2": "^0.0.9",
+    "gulp": "^4.0.2",
+    "gulp-esbuild": "^0.8.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-twig2html": "^2.2.0",
+    "gulp-vite": "^1.1.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nesting": "^8.0.1"
   }
 }
