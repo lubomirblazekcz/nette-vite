@@ -33,6 +33,8 @@ That downloads the project from Github, installs `package.json` dependencies wit
 
 Js and Css files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
 
+Alternatively you can use [gulp-vite](https://github.com/evromalarkey/nette-vite/tree/gulp-vite) to build files with Gulp and serve with Vite.
+
 > On Windows it's recommended to use WSL2 to run everything (Docker, Node.js via nvm), it's the best approach. Otherwise, some docker scripts inside package.json would work only in PowerShell. 
 
 > When correct Node.js version is set in PhpStorm (WSL2 on Windows), you can use build-in npm to install dependencies or run scripts via GUI.
