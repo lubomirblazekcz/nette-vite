@@ -1,7 +1,7 @@
 const reload = {
     name: 'reload',
     handleHotUpdate({ file, server }) {
-        if (file.endsWith(".php") || file.endsWith(".latte")) {
+        if (!file.includes('temp') && file.endsWith(".php") || file.endsWith(".latte")) {
             server.ws.send({
                 type: 'full-reload',
                 path: '*',

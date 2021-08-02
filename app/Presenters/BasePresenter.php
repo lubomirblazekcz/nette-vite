@@ -14,8 +14,8 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
     public function renderDefault(): void
     {
-        if (\Tracy\Debugger::$productionMode && file_exists($_SERVER['DOCUMENT_ROOT'] . '/manifest.json')) {
-            $this->template->manifest = Nette\Utils\Json::decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/manifest.json'),1);
+        if (\Tracy\Debugger::$productionMode && file_exists(__DIR__ . '/../../www/manifest.json')) {
+            $this->template->manifest = Nette\Utils\Json::decode(file_get_contents(__DIR__ . '/../../www/manifest.json'),1);
         }
     }
 }
