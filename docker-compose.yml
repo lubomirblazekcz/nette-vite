@@ -2,13 +2,12 @@ services:
   web:
     image: josefjebavy/debian-apache-php8.0-nette
     working_dir: /var/www/html
-    environment:
-      - NETTE_DEBUG=1
     volumes:
       - .:/var/www/html
     ports:
       - 80:80
       - 443:443
+
   db:
     image: mariadb:10.6
     environment:
@@ -16,7 +15,14 @@ services:
       MYSQL_DATABASE: test
     volumes:
       - .docker/mysql:/var/lib/mysql
+
   adminer:
     image: adminer
     ports:
-      - 4000:8080
+      - 8080:8080
+
+  composer:
+    image: composer
+    command: [ "composer", "install" ]
+    volumes:
+      - .:/app

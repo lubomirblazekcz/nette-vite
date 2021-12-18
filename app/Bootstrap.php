@@ -20,11 +20,12 @@ class Bootstrap
 		$configurator->setTimeZone('Europe/Prague');
 		$configurator->setTempDirectory($appDir . '/temp');
 
-        $configurator->createRobotLoader()
+		$configurator->createRobotLoader()
 			->addDirectory(__DIR__)
 			->register();
 
 		$configurator->addConfig($appDir . '/config/common.neon');
+		$configurator->addConfig($appDir . '/config/services.neon');
 		$configurator->addConfig($appDir . '/config/local.neon');
 
 		return $configurator;

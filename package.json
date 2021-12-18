@@ -1,20 +1,25 @@
 {
-  "type": "module",
   "scripts": {
-    "postinstall": "npm run composer:install",
-    "nette:dev": "concurrently -n=nette,vite -c=blue,yellow \"docker compose up\" \"npm run vite:dev\"",
-    "nette:serve": "concurrently -n=nette,vite -c=blue,yellow \"docker compose up\" \"npm run vite:serve\"",
-    "vite:dev": "npx vite",
-    "vite:build": "npx vite build",
-    "vite:serve": "npx vite preview",
+    "postinstall": "chmod 777 temp && chmod 777 log",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "composer:install": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer install",
     "composer:update": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update"
   },
   "dependencies": {
-    "nette-forms": "^3.2.0"
+    "@hotwired/turbo": "^7.1.0",
+    "@hotwired/stimulus": "^3.0.1",
+    "nette-forms": "^3.3.1"
   },
   "devDependencies": {
-    "concurrently": "^6.2.0",
-    "vite": "^2.4.4"
+    "vite": "^2.7.3",
+    "autoprefixer": "^10.4.0",
+    "tailwindcss": "^3.0.7",
+    "postcss": "^8.4.5",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-custom-selectors": "^6.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nesting": "^10.0.3"
   }
 }
