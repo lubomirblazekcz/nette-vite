@@ -8,7 +8,7 @@
 
 	{if !\Tracy\Debugger::$productionMode}
 		<script type="module" src="http://localhost:3000/@vite/client"></script>
-		<script type="module" src="http://localhost:3000/src/main.js"></script>
+		<script type="module" src="http://localhost:3000/src/scripts/main.js"></script>
 	{else}
 		{foreach $manifest['src/main.js']['css'] as $file}
 			<link rel="stylesheet" href="/assets/{$file}" />
@@ -17,7 +17,7 @@
 	{/if}
 </head>
 
-<body data-controller="body">
+<body data-controller="body" class="aspect-[3/4] flex flex-col justify-center">
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}

@@ -1,6 +1,7 @@
 module.exports = {
   content: [
-    './src/**/*.{js,html}'
+    './src/**/*.js',
+    './app/**/*.latte'
   ],
   theme: {
     extend: {},

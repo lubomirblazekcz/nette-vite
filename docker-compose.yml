@@ -12,7 +12,7 @@ services:
     image: mariadb:10.6
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
+      MYSQL_DATABASE: root
     volumes:
       - .docker/mysql:/var/lib/mysql
 

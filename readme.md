@@ -12,7 +12,7 @@ If you like Nette, **[please make a donation now](https://nette.org/donate)**.
 
 In addition, this skeleton provides complete solution for fast, compelling applications with a minimal amount of effort.
 
-* [Vite](https://vitejs.dev/) - next Generation Frontend Tooling 
+* [Vite](https://vitejs.dev/) - next generation frontend tooling 
 * [Tailwind 3+](https://tailwindcss.com/) - a utility-first CSS framework packed with classes
 * [Stimulus 3+](https://stimulus.hotwired.dev/) - designed to augment your HTML with just enough behavior to make it shine
 * [Turbo 7+](https://turbo.hotwired.dev/) - accelerates links and form submissions by negating the need for full page reloads
