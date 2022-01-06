@@ -6,10 +6,10 @@
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 
-	{if !\Tracy\Debugger::$productionMode}
+	{if !\Tracy\Debugger::$productionMode && $netteViteCookie == 'true'}
 		<script type="module" src="http://localhost:3000/@vite/client"></script>
 		<script type="module" src="http://localhost:3000/src/scripts/main.js"></script>
-	{else}
+	{elseif isset($manifest)}
 		{foreach $manifest['src/main.js']['css'] as $file}
 			<link rel="stylesheet" href="/assets/{$file}" />
 		{/foreach}
