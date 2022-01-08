@@ -38,7 +38,7 @@ export default {
         outDir: "www",
         emptyOutDir: false,
         rollupOptions: {
-            input: FastGlob.sync(['./src/*.js']).map(entry => resolve(process.cwd(), entry))
+            input: FastGlob.sync(['./src/**/*.js']).map(entry => resolve(process.cwd(), entry))
         }
     }
 }
