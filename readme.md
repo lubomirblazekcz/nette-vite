@@ -60,3 +60,35 @@ should be ready to go.
 
 **It is CRITICAL that whole `app/`, `config/`, `log/` and `temp/` directories are not accessible directly
 via a web browser. See [security warning](https://nette.org/security-warning).**
+
+Vite
+----------------
+There are few possible ways how to load assets with Vite in your latte templates.
+
+Option 1 - print all `<script>` and `<link>` tags automatically, with this you have to include css in `.js`
+```latte
+{$vite->printTags('src/scripts/main.js')}
+```
+
+Option 2 - same as first option, but you have more control over your HTML
+```latte
+{if $vite->isEnabled()}
+    <script type="module" src="{='@vite/client'|asset}"></script>
+{else}
+    {foreach $vite->getCssAssets('src/scripts/main.js') as $path}
+        <link rel="stylesheet" href="{$path}">
+    {/foreach}
+{/if}
+
+<script src="{='src/scripts/main.js'|asset}" type="module"></script>
+```
+
+Option 3 - most basic, but currently not possible for production, due Vite drawback - [vitejs/vite#6595](https://github.com/vitejs/vite/issues/6595)
+```latte
+{if $vite->isEnabled()}
+    <script type="module" src="{='@vite/client'|asset}"></script>
+{/if}
+
+<script src="{='src/scripts/main.js'|asset}" type="module"></script>
+<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
+```

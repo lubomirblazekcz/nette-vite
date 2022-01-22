@@ -13,13 +13,13 @@
     "nette-forms": "^3.3.1"
   },
   "devDependencies": {
-    "vite": "^2.7.3",
-    "autoprefixer": "^10.4.0",
-    "tailwindcss": "^3.0.7",
+    "vite": "^2.7.13",
+    "autoprefixer": "^10.4.2",
+    "tailwindcss":"^3.0.15",
     "postcss": "^8.4.5",
     "postcss-custom-media": "^8.0.0",
     "postcss-custom-selectors": "^6.0.0",
     "postcss-import": "^14.0.2",
-    "postcss-nesting": "^10.0.3"
+    "postcss-nesting": "^10.1.2"
   }
 }

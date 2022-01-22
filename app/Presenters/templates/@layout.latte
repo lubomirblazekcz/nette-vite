@@ -6,15 +6,15 @@
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
 
-	{if !\Tracy\Debugger::$productionMode && $netteViteCookie == 'true'}
-		<script type="module" src="http://localhost:3000/@vite/client"></script>
-		<script type="module" src="http://localhost:3000/src/scripts/main.js"></script>
-	{elseif isset($manifest)}
-		{foreach $manifest['src/main.js']['css'] as $file}
-			<link rel="stylesheet" href="/assets/{$file}" />
+	{if $vite->isEnabled()}
+		<script type="module" src="{='@vite/client'|asset}"></script>
+	{else}
+		{foreach $vite->getCssAssets('src/scripts/main.js') as $path}
+			<link rel="stylesheet" href="{$path}">
 		{/foreach}
-		<script type="module" src="/assets/{$manifest['src/main.js']['file']}"></script>
 	{/if}
+
+	<script src="{='src/scripts/main.js'|asset}" type="module"></script>
 </head>
 
 <body data-controller="body" class="aspect-[3/4] flex flex-col justify-center">
