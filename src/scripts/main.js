@@ -1,5 +1,3 @@
-import "/src/styles/main.css"
-
 import { Application, Controller } from '@hotwired/stimulus'
 import "@hotwired/turbo"
 

@@ -42,5 +42,14 @@ export default {
         rollupOptions: {
             input: FastGlob.sync(['./src/scripts/*.js', './src/styles/*.css']).map(entry => resolve(process.cwd(), entry))
         }
+    },
+    tuum: {
+        outDir: "www",
+        styles: {
+            input: './src/styles/*.css'
+        },
+        scripts: {
+            input: './src/scripts/*.js'
+        }
     }
 }
