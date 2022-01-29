@@ -1,8 +1,8 @@
-import { sync } from 'fast-glob'
+import FastGlob from 'fast-glob'
 import { resolve } from 'path';
 
 import tailwindcss from 'tailwindcss'
-import tailwindcssNesting from 'tailwindcss/nesting'
+import tailwindcssNesting from 'tailwindcss/nesting/index.js'
 import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import';
 import postcssNesting from 'postcss-nesting';
@@ -40,7 +40,7 @@ export default {
         outDir: "www",
         emptyOutDir: false,
         rollupOptions: {
-            input: sync(['./src/scripts/*.js', './src/styles/*.css']).map(entry => resolve(process.cwd(), entry))
+            input: FastGlob.sync(['./src/scripts/*.js', './src/styles/*.css']).map(entry => resolve(process.cwd(), entry))
         }
     }
 }
