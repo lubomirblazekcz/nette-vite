@@ -7,6 +7,7 @@ import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import';
 import postcssNesting from 'postcss-nesting';
 import postcssCustomMedia from 'postcss-custom-media';
+import vue from '@vitejs/plugin-vue'
 
 const reload = {
     name: 'reload',
@@ -21,7 +22,7 @@ const reload = {
 }
 
 export default {
-    plugins: [reload],
+    plugins: [vue(), reload],
     css: {
         postcss: {
             plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]

@@ -8,9 +8,7 @@
     "composer:update": "docker run --rm --interactive --tty --volume ${PWD}:/app --volume ${COMPOSER_HOME:-$HOME/.composer}:/tmp composer update"
   },
   "dependencies": {
-    "@hotwired/turbo": "^7.1.0",
-    "@hotwired/stimulus": "^3.0.1",
-    "nette-forms": "^3.3.1"
+    "@vitejs/plugin-vue": "^2.2.0"
   },
   "devDependencies": {
     "vite": "^2.7.13",
