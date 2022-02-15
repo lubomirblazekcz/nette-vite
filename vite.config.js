@@ -21,8 +21,23 @@ const reload = {
     }
 }
 
+const assets = (url) => {
+    return {
+        name: 'asset-base-url',
+        enforce: 'post',
+        transform: (code) => {
+            code = code.replace(/(from |import\()("|'|`)(\/src|~?@|\/@fs\/@)\/(.*?)\.(svg|png|mp3|mp4)/g, `$1$2${url}/src/$4.$5?import=`)
+            code = code.replace(/(?<!local)(\/src|~?@|\/@fs\/@)\/(.*?)\.(svg|png|mp3|mp4)/g, `${url}/src/$2.$3`)
+            return {
+                code,
+                map: null,
+            }
+        }
+    }
+}
+
 export default {
-    plugins: [vue(), reload],
+    plugins: [vue(), assets(`http://localhost:3000`), reload],
     css: {
         postcss: {
             plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]
