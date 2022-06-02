@@ -27,7 +27,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"App\\": "app"
+			"App\\": "app",
+			"MMEE\\Vite\\": "Vite/src"
 		}
 	},
 	"minimum-stability": "stable"
