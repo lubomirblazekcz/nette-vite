@@ -2,10 +2,10 @@
 
 namespace MMEE\Vite;
 
+use Nette\Http\Request;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Html;
 use Nette\Utils\Json;
-use Nette\Http\Request;
 
 final class Service
 {
@@ -15,39 +15,51 @@ final class Service
 
 	private bool $debugMode;
 
+	private string $basePath;
+
 	private Request $httpRequest;
 
 
-	public function __construct(string $viteServer, string $manifestFile, bool $debugMode, Request $httpRequest)
+	public function __construct(
+		string $viteServer,
+		string $manifestFile,
+		bool $debugMode,
+		string $basePath,
+		Request $httpRequest
+	)
 	{
 		$this->viteServer = $viteServer;
 		$this->manifestFile = $manifestFile;
 		$this->debugMode = $debugMode;
+		$this->basePath = $basePath;
 		$this->httpRequest = $httpRequest;
 	}
 
 
 	public function getAsset(string $entrypoint): string
 	{
-		$asset = '';
-		$baseUrl = '/';
+		if ($this->isEnabled()) {
+			$baseUrl = $this->viteServer . '/';
+			$asset = $entrypoint;
+		} else {
+			$baseUrl = $this->basePath;
+			$asset = '';
 
-		if (!$this->isEnabled()) {
 			if (file_exists($this->manifestFile)) {
 				$manifest = Json::decode(FileSystem::read($this->manifestFile), Json::FORCE_ARRAY);
 				$asset = $manifest[$entrypoint]['file'];
 			} else {
 				trigger_error('Missing manifest file: ' . $this->manifestFile, E_USER_WARNING);
 			}
-		} else {
-			$baseUrl = $this->viteServer . '/';
-			$asset = $entrypoint;
 		}
 
 		return $baseUrl . $asset;
 	}
 
 
+	/**
+	 * @return array<string, string>
+	 */
 	public function getCssAssets(string $entrypoint): array
 	{
 		$assets = [];

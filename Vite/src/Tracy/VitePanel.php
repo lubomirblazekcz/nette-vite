@@ -2,13 +2,14 @@
 
 namespace MMEE\Vite\Tracy;
 
+use Nette\Safe;
 use Tracy;
 
 final class VitePanel implements Tracy\IBarPanel
 {
 	public function getTab()
 	{
-		return file_get_contents(__DIR__ . '/Vite.html');
+		return Safe::file_get_contents(__DIR__ . '/Vite.html');
 	}
 
 
