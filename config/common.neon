@@ -15,7 +15,3 @@ di:
 	export:
 		parameters: no
 		tags: no
-
-tracy:
-	bar:
-		- VitePanel
