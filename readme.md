@@ -65,12 +65,17 @@ Vite
 ----------------
 There are few possible ways how to load assets with Vite in your latte templates.
 
-Option 1 - print all `<script>` and `<link>` tags automatically, with this you have to include css in `.js`
+Option 1 - most basic, preferred
 ```latte
-{$vite->printTags('src/scripts/main.js')}
+{if $vite->isEnabled()}
+    <script type="module" src="{='@vite/client'|asset}"></script>
+{/if}
+
+<script src="{='src/scripts/main.js'|asset}" type="module"></script>
+<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
 ```
 
-Option 2 - same as first option, but you have more control over your HTML
+Option 2 -if you prefer to include css in `.js`, use this option
 ```latte
 {if $vite->isEnabled()}
     <script type="module" src="{='@vite/client'|asset}"></script>
@@ -83,12 +88,7 @@ Option 2 - same as first option, but you have more control over your HTML
 <script src="{='src/scripts/main.js'|asset}" type="module"></script>
 ```
 
-Option 3 - most basic, but currently not possible for production, due Vite drawback - [vitejs/vite#6595](https://github.com/vitejs/vite/issues/6595)
+Option 3 - same as second option, but print all `<script>` and `<link>` tags automatically, with this you have to also include css in `.js`
 ```latte
-{if $vite->isEnabled()}
-    <script type="module" src="{='@vite/client'|asset}"></script>
-{/if}
-
-<script src="{='src/scripts/main.js'|asset}" type="module"></script>
-<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
+{$vite->printTags('src/scripts/main.js')}
 ```

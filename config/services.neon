@@ -1,6 +1,6 @@
 services:
         - App\Router\RouterFactory::createRouter
-        - Vite(http://localhost:3000, %wwwDir%/manifest.json, not(%debugMode%))
+        - Vite(http://localhost:5173, %wwwDir%/manifest.json, not(%debugMode%))
         nette.latteFactory:
             setup:
                 - addFilter(asset, App\Latte\AssetFilter())

@@ -8,13 +8,10 @@
 
 	{if $vite->isEnabled()}
 		<script type="module" src="{='@vite/client'|asset}"></script>
-	{else}
-		{foreach $vite->getCssAssets('src/scripts/main.js') as $path}
-			<link rel="stylesheet" href="{$path}">
-		{/foreach}
 	{/if}
 
 	<script src="{='src/scripts/main.js'|asset}" type="module"></script>
+	<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
 </head>
 
 <body data-controller="body" class="aspect-[3/4] flex flex-col justify-center">

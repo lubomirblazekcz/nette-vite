@@ -28,22 +28,22 @@
   }
 </style>
 <script>
-  function getCookie(n, a = `; ${document.cookie}`.match(`;\\s*${n}=([^;]+)`)) {
-    return a ? JSON.parse(a[1]) : false;
-  }
+    (() => {
+        function getCookie(n, a = `; ${document.cookie}`.match(`;\\s*${n}=([^;]+)`)) {
+            return a ? JSON.parse(a[1]) : false;
+        }
 
-  const element = document.querySelector('#tracy-debug [data-action="netteVite"]')
+        const element = document.querySelector('#tracy-debug [data-action="netteVite"]')
 
-  console.log(getCookie('netteVite'))
+        if (!getCookie('netteVite')) {
+            element.style.opacity = '40%'
+        }
 
-  if (!getCookie('netteVite')) {
-    element.style.opacity = '40%'
-  }
+        element.addEventListener('click', () => {
+            document.cookie = getCookie('netteVite') ? 'netteVite=false; path=/;' : 'netteVite=true; path=/;'
 
-  element.addEventListener('click', () => {
-    document.cookie = getCookie('netteVite') ? 'netteVite=false; path=/;' : 'netteVite=true; path=/;'
-
-    getCookie('netteVite') ? (element.style.opacity = '') : (element.style.opacity = '40%')
-    document.location.reload()
-  })
+            getCookie('netteVite') ? (element.style.opacity = '') : (element.style.opacity = '40%')
+            document.location.reload()
+        })
+    })()
 </script>
