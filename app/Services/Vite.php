@@ -45,11 +45,14 @@ class Vite
     public function getCssAssets(string $entrypoint): array
     {
         $assets = [];
+        $baseUrl = '/';
 
         if (!$this->isEnabled()) {
             if (file_exists($this->manifestFile)) {
                 $manifest = Json::decode(FileSystem::read($this->manifestFile), Json::FORCE_ARRAY);
-                $assets = $manifest[$entrypoint]['css'] ?? [];
+                foreach ($manifest[$entrypoint]['css'] ?? [] as $asset) {
+					$assets[] = $baseUrl . $asset;
+				}
             } else {
                 trigger_error('Missing manifest file: ' . $this->manifestFile, E_USER_WARNING);
             }
