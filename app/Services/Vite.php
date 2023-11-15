@@ -20,23 +20,18 @@ class Vite
      */
     public function getAsset(string $entrypoint): string
     {
-        $asset = '';
         $baseUrl = '/';
 
         if (!$this->isEnabled()) {
             if (file_exists($this->manifestFile)) {
                 $manifest = Json::decode(FileSystem::read($this->manifestFile), Json::FORCE_ARRAY);
-                $asset = $manifest[$entrypoint]['file'];
-            } else {
-                trigger_error('Missing manifest file: ' . $this->manifestFile, E_USER_WARNING);
+                $entrypoint = $manifest[$entrypoint]['file'];
             }
-
         } else {
             $baseUrl = $this->viteServer . '/';
-            $asset = $entrypoint;
         }
 
-        return $baseUrl . $asset;
+        return $baseUrl . $entrypoint;
     }
 
     /**

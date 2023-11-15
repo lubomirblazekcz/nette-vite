@@ -10,16 +10,16 @@
 		<script type="module" src="{='@vite/client'|asset}"></script>
 	{/if}
 
-	<script src="{='src/scripts/main.js'|asset}" type="module"></script>
-	<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
+	{block styles}
+	{/block}
+
+	{block scripts}
+	{/block}
 </head>
 
 <body data-controller="body" class="aspect-[3/4] flex flex-col justify-center">
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
-
-	{block scripts}
-	{/block}
 </body>
 </html>
