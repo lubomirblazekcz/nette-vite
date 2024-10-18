@@ -5,14 +5,29 @@ declare(strict_types=1);
 namespace App\View\Presenters;
 
 use Nette;
+use Nette\Application\Helpers;
 
 
 class DefaultPresenter extends Nette\Application\UI\Presenter
 {
-    protected function startup(): void
+    public function formatTemplateFiles(): array
     {
-        parent::startup();
+        [, $presenter] = Helpers::splitName($this->getName());
 
-        $this->setLayout(SRC_DIR . '/views/layouts/default.latte');
+        return [
+            SRC_PRESENTERS_DIR . "/$presenter/$this->view.latte",
+            SRC_PRESENTERS_DIR . "/$presenter.$this->view.latte",
+        ];
+    }
+
+    public function formatLayoutTemplateFiles(): array
+    {
+
+        $layout = $this->layout ?: 'default';
+        $list[] = SRC_LAYOUTS_DIR . "/$layout.latte";
+
+        bdump($list);
+
+        return $list;
     }
 }
