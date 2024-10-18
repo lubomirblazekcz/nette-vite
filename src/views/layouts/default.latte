@@ -5,21 +5,15 @@
 	<meta name="viewport" content="width=device-width">
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
-
-	{if $vite->isEnabled()}
-		<script type="module" src="{='@vite/client'|asset}"></script>
-	{/if}
-
-	<script src="{='src/scripts/main.js'|asset}" type="module"></script>
-	<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
 </head>
 
-<body data-controller="body" class="aspect-[3/4] flex flex-col justify-center">
+<body>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
 
 	{block scripts}
+	<script src="https://unpkg.com/nette-forms@3"></script>
 	{/block}
 </body>
 </html>

@@ -2,20 +2,26 @@ parameters:
 
 
 application:
-	errorPresenter: Error
-	mapping:
-		*: [App, Modules\*, Presenters\*Presenter]
+	errorPresenter:
+		4xx: Error4xx
+		5xx: Error5xx
+	mapping: App\View\Presenters\*Presenter
 
 
-session:
-	expiration: 14 days
+database:
+	dsn: 'sqlite::memory:'
+	user:
+	password:
+
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+	extensions:
+		- App\View\Extensions\LatteExtension
 
 
 di:
 	export:
 		parameters: no
 		tags: no
-
-tracy:
-	bar:
-		- VitePanel
