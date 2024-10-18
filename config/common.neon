@@ -1,12 +1,15 @@
 parameters:
-
+    rootDir: %appDir%/..
+    srcDir: %appDir%/../src
+    srcViewsDir: %appDir%/../src/views
+    srcLayoutsDir: %appDir%/../src/views/layouts
+    srcPresentersDir: %appDir%/../src/views/presenters
 
 application:
 	errorPresenter:
 		4xx: Error4xx
 		5xx: Error5xx
 	mapping: App\View\Presenters\*Presenter
-
 
 database:
 	dsn: 'sqlite::memory:'
@@ -23,5 +26,4 @@ latte:
 
 di:
 	export:
-		parameters: no
 		tags: no

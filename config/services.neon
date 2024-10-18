@@ -1,6 +1,8 @@
 services:
-	- App\Core\RouterFactory::createRouter
-
+    - App\Core\ConfigFactory(
+        parameters: @container::getParameters()
+    )
+    - App\Core\RouterFactory::createRouter
 
 search:
 	-	in: %appDir%
