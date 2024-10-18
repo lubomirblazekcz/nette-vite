@@ -26,8 +26,6 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
         $layout = $this->layout ?: 'default';
         $list[] = SRC_LAYOUTS_DIR . "/$layout.latte";
 
-        bdump($list);
-
         return $list;
     }
 }
