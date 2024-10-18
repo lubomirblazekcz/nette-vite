@@ -6,5 +6,4 @@ namespace App\View\Presenters;
 
 final class HomePresenter extends DefaultPresenter
 {
-
 }

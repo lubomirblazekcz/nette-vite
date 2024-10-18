@@ -4,6 +4,7 @@ parameters:
     srcViewsDir: %appDir%/../src/views
     srcLayoutsDir: %appDir%/../src/views/layouts
     srcPresentersDir: %appDir%/../src/views/presenters
+    srcComponentsDir: %appDir%/../src/views/presenters
 
 application:
 	errorPresenter:
