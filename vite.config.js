@@ -1,15 +1,8 @@
 import FastGlob from 'fast-glob'
-import { resolve } from 'path';
-
-import tailwindcss from 'tailwindcss'
-import tailwindcssNesting from 'tailwindcss/nesting/index.js'
-import autoprefixer from 'autoprefixer'
-import postcssImport from 'postcss-import';
-import postcssNesting from 'postcss-nesting';
-import postcssCustomMedia from 'postcss-custom-media';
+import { resolve } from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
 
 const reload = {
-    name: 'reload',
     handleHotUpdate({ file, server }) {
         if (!file.includes('temp') && file.endsWith(".php") || file.endsWith(".latte")) {
             server.ws.send({
@@ -21,12 +14,7 @@ const reload = {
 }
 
 export default {
-    plugins: [reload],
-    css: {
-        postcss: {
-            plugins: [postcssImport, tailwindcssNesting(postcssNesting), postcssCustomMedia, tailwindcss, autoprefixer]
-        }
-    },
+    plugins: [tailwindcss(), reload],
     server: {
         watch: {
             usePolling: true
@@ -36,11 +24,13 @@ export default {
         }
     },
     build: {
-        manifest: true,
+        manifest: 'manifest.json',
         outDir: "www",
         emptyOutDir: false,
+        modulePreload: false,
         rollupOptions: {
-            input: FastGlob.sync(['./src/scripts/*.js', './src/styles/*.css']).map(entry => resolve(process.cwd(), entry))
+            input: FastGlob.sync(['./src/scripts/*.js', './src/styles/*.css'])
+                .map(entry => resolve(process.cwd(), entry))
         }
     }
 }

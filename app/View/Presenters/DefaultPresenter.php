@@ -15,7 +15,7 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
 
     public function formatTemplateFiles(): array
     {
-        [, $presenter] = Helpers::splitName($this->getName());
+        [, $presenter] = Helpers::splitName($this->getName() ?? '');
 
         return [
             $this->config->parameters['srcPresentersDir'] . "/$presenter/$this->view.latte",
