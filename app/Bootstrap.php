@@ -6,28 +6,26 @@ namespace App;
 
 use Nette\Bootstrap\Configurator;
 
-
 class Bootstrap
 {
-	public static function boot(): Configurator
-	{
-		$configurator = new Configurator;
-		$appDir = dirname(__DIR__);
+    public static function boot(): Configurator
+    {
+        $configurator = new Configurator();
+        $rootDir = dirname(__DIR__);
+        $debug = getenv('NETTE_DEBUG');
 
-		$configurator->setDebugMode($_SERVER['HTTP_HOST'] === 'localhost');
-		$configurator->enableTracy($appDir . '/log');
+        $configurator->setDebugMode($debug && strtolower($debug) === 'true' ?: $debug);
+        $configurator->enableTracy($rootDir . '/log');
 
-		$configurator->setTimeZone('Europe/Prague');
-		$configurator->setTempDirectory($appDir . '/temp');
+        $configurator->setTempDirectory($rootDir . '/temp');
 
-		$configurator->createRobotLoader()
-			->addDirectory(__DIR__)
-			->register();
+        $configurator->createRobotLoader()
+            ->addDirectory(__DIR__)
+            ->register();
 
-		$configurator->addConfig($appDir . '/config/common.neon');
-		$configurator->addConfig($appDir . '/config/services.neon');
-		$configurator->addConfig($appDir . '/config/local.neon');
+        $configurator->addConfig($rootDir . '/config/common.neon');
+        $configurator->addConfig($rootDir . '/config/services.neon');
 
-		return $configurator;
-	}
+        return $configurator;
+    }
 }

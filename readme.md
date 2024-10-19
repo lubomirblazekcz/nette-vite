@@ -1,94 +1,70 @@
 Nette Vite
 =================
 
-This is a simple, skeleton application using the [Nette](https://nette.org). This is meant to
-be used as a starting point for your new projects.
+Welcome to the Nette Web Project! This is a basic skeleton application built using
+[Nette](https://nette.org), ideal for kick-starting your new web projects.
 
-[Nette](https://nette.org) is a popular tool for PHP web development.
-It is designed to be the most usable and friendliest as possible. It focuses
-on security and performance and is definitely one of the safest PHP frameworks.
+Nette is a renowned PHP web development framework, celebrated for its user-friendliness,
+robust security, and outstanding performance. It's among the safest choices
+for PHP frameworks out there.
 
-If you like Nette, **[please make a donation now](https://nette.org/donate)**.
+If Nette helps you, consider supporting it by [making a donation](https://nette.org/donate).
+Thank you for your generosity!
 
-In addition, this skeleton provides complete solution for fast, compelling applications with a minimal amount of effort.
-
-* [Vite](https://vitejs.dev/) - next generation frontend tooling 
-* [Tailwind 3+](https://tailwindcss.com/) - a utility-first CSS framework packed with classes
-* [Stimulus 3+](https://stimulus.hotwired.dev/) - designed to augment your HTML with just enough behavior to make it shine
-* [Turbo 7+](https://turbo.hotwired.dev/) - accelerates links and form submissions by negating the need for full page reloads
 
 Requirements
 ------------
 
-- PHP 8.0
-- Node.js LTS
-- Docker
+This Web Project is compatible with Nette 3.2 and requires PHP 8.1.
 
 
-Local Setup
+Installation
 ------------
 
-The best way to install Web Project locally is using Docker. If you don't have Docker yet,
-download it following [the instructions](https://www.docker.com/products/docker-desktop). 
+To install the Web Project, Composer is the recommended tool. If you're new to Composer,
+follow [these instructions](https://doc.nette.org/composer). Then, run:
 
-Use following commands:
-    
-    mkdir nette-vite && cd nette-vite
-	git clone --depth 1 https://github.com/evromalarkey/nette-vite.git . && npm i
-
-That downloads the project from Github, installs `package.json` dependencies. After that you can serve your project from localhost
-
-	docker compose up
-    npm run dev
-
-Then visit `http://localhost` in your browser to see the welcome page.
-
-JS and CSS files are served via Vite, directly from sources. Any file changes reloads the browsers for fast local development.
-
-> On Windows it's recommended to use **WSL2** to run everything (Docker, Node.js via nvm), it's the best approach. Otherwise, some docker scripts inside package.json would work only in PowerShell. 
-
-> When correct Node.js version is set in **PhpStorm** (WSL2 on Windows), you can use build-in npm to install dependencies or run scripts via GUI.
+	composer install
 
 
-Production Setup
+Web Server Setup
 ----------------
 
-Make directories `temp/` and `log/` writable.
+To quickly dive in, use PHP's built-in server:
 
-For Apache or Nginx, setup a virtual host to point to the `www/` directory of the project and you
-should be ready to go.
+	export NETTE_DEBUG=true && php -S localhost:8000 -t www
 
-**It is CRITICAL that whole `app/`, `config/`, `log/` and `temp/` directories are not accessible directly
-via a web browser. See [security warning](https://nette.org/security-warning).**
+Then, open `http://localhost:8000` in your browser to view the welcome page.
+
+For Apache or Nginx users, configure a virtual host pointing to your project's `www/` directory.
+
+**Important Note:** Ensure `app/`, `config/`, `log/`, and `temp/` directories are not web-accessible.
+Refer to [security warning](https://nette.org/security-warning) for more details.
+
+
+Docker
+----------------
+
+Alternatively you can also use [Docker](https://www.docker.com/) for local development:
+
+	composer run dev
+
+Then, open `http://localhost` in your browser to view the welcome page.
 
 Vite
 ----------------
-There are few possible ways how to load assets with Vite in your latte templates.
 
-Option 1 - most basic, preferred
-```latte
-{if $vite->isEnabled()}
-    <script type="module" src="{='@vite/client'|asset}"></script>
-{/if}
+This Web Project also includes [@contributte/vite](https://github.com/contributte/vite) for seamless frontend development.
+Node.js is required, after that you can run following commands:
 
-<script src="{='src/scripts/main.js'|asset}" type="module"></script>
-<link rel="stylesheet" href="{='src/styles/main.css'|asset}">
-```
+[Node.js](https://nodejs.org) is required, to install the dependencies run:
 
-Option 2 -if you prefer to include css in `.js`, use this option
-```latte
-{if $vite->isEnabled()}
-    <script type="module" src="{='@vite/client'|asset}"></script>
-{else}
-    {foreach $vite->getCssAssets('src/scripts/main.js') as $path}
-        <link rel="stylesheet" href="{$path}">
-    {/foreach}
-{/if}
+	npm install
 
-<script src="{='src/scripts/main.js'|asset}" type="module"></script>
-```
+To run Vite run:
 
-Option 3 - same as second option, but print all `<script>` and `<link>` tags automatically, with this you have to also include css in `.js`
-```latte
-{$vite->printTags('src/scripts/main.js')}
-```
+	npm run dev
+
+To build Vite run:
+
+	npm run build

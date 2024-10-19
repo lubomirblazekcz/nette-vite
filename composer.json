@@ -3,28 +3,35 @@
 	"description": "Nette: Standard Web Project",
 	"keywords": ["nette"],
 	"type": "project",
-	"license": ["MIT", "BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
+	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
+	"scripts": {
+		"post-install-cmd": "chmod 777 temp && chmod 777 log",
+		"dev": "docker compose up",
+		"pint": "./vendor/bin/pint",
+		"phpstan": "vendor/bin/phpstan analyse www app --level max"
+	},
 	"require": {
-		"php": ">= 8.0",
-		"nette/application": "^3.1",
-		"nette/bootstrap": "^3.1",
-		"nette/caching": "^3.1",
-		"nette/database": "^3.1",
-		"nette/di": "^3.0",
-		"nette/finder": "^2.5",
-		"nette/forms": "^3.1",
-		"nette/http": "^3.1",
-		"nette/mail": "^3.1",
-		"nette/robot-loader": "^3.3",
-		"nette/security": "^3.1",
-		"nette/utils": "^3.2",
-		"latte/latte": "^2.11 || ^3.0",
-		"tracy/tracy": "^2.8"
+		"php": ">= 8.1",
+		"nette/application": "^3.2.3",
+		"nette/bootstrap": "^3.2",
+		"nette/caching": "^3.2",
+		"nette/database": "^3.2",
+		"nette/di": "^3.2",
+		"nette/forms": "^3.2",
+		"nette/http": "^3.3",
+		"nette/mail": "^4.0",
+		"nette/robot-loader": "^4.0",
+		"nette/security": "^3.2",
+		"nette/utils": "^4.0",
+		"latte/latte": "^3.0",
+		"tracy/tracy": "^2.10",
+		"contributte/vite": "^0.2.0"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"nette/tester": "^2.3",
-		"symfony/thanks": "^1"
+		"nette/tester": "^2.5",
+		"symfony/thanks": "^1",
+		"laravel/pint": "^1.18",
+		"phpstan/phpstan": "^1.12"
 	},
 	"autoload": {
 		"psr-4": {
