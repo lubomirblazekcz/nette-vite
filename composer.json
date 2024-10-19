@@ -4,6 +4,9 @@
 	"keywords": ["nette"],
 	"type": "project",
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
+	"scripts": {
+		"pint": "./vendor/bin/pint"
+	},
 	"require": {
 		"php": ">= 8.1",
 		"nette/application": "^3.2.3",
@@ -22,7 +25,8 @@
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
-		"symfony/thanks": "^1"
+		"symfony/thanks": "^1",
+		"laravel/pint": "^1.18"
 	},
 	"autoload": {
 		"psr-4": {
