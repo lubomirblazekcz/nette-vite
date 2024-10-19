@@ -32,7 +32,7 @@ Web Server Setup
 
 To quickly dive in, use PHP's built-in server:
 
-	export NETTE_DEBUG=true && php -S localhost:8000 -t www
+	composer run dev
 
 Then, open `http://localhost:8000` in your browser to view the welcome page.
 
@@ -47,7 +47,7 @@ Docker
 
 Alternatively you can also use [Docker](https://www.docker.com/) for local development:
 
-	composer run dev
+	docker compose up
 
 Then, open `http://localhost` in your browser to view the welcome page.
 

@@ -6,7 +6,8 @@
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
 	"scripts": {
 		"post-install-cmd": "chmod 777 temp && chmod 777 log",
-		"dev": "docker compose up",
+		"dev": "export NETTE_DEBUG=true && php -S localhost:8000 -t www",
+		"preview": "export NETTE_DEBUG=false && php -S localhost:8000 -t www",
 		"pint": "pint",
 		"phpstan": "phpstan analyse www app --level max"
 	},
