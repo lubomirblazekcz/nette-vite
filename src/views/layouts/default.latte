@@ -14,7 +14,7 @@
 	<script src="{='src/scripts/main.js'|vite}" type="module"></script>
 </head>
 
-<body>
+<body class="min-h-dvh flex flex-col justify-center">
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}

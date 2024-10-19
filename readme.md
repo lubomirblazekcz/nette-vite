@@ -1,4 +1,4 @@
-Nette Web Project
+Nette Vite
 =================
 
 Welcome to the Nette Web Project! This is a basic skeleton application built using
@@ -24,10 +24,7 @@ Installation
 To install the Web Project, Composer is the recommended tool. If you're new to Composer,
 follow [these instructions](https://doc.nette.org/composer). Then, run:
 
-	composer create-project nette/web-project path/to/install
-	cd path/to/install
-
-Ensure the `temp/` and `log/` directories are writable.
+	composer install
 
 
 Web Server Setup
@@ -35,7 +32,7 @@ Web Server Setup
 
 To quickly dive in, use PHP's built-in server:
 
-	php -S localhost:8000 -t www
+	export NETTE_DEBUG=true && php -S localhost:8000 -t www
 
 Then, open `http://localhost:8000` in your browser to view the welcome page.
 
@@ -45,8 +42,29 @@ For Apache or Nginx users, configure a virtual host pointing to your project's `
 Refer to [security warning](https://nette.org/security-warning) for more details.
 
 
-Minimal Skeleton
+Docker
 ----------------
 
-For demonstrating issues or similar tasks, rather than starting a new project, use
-this [minimal skeleton](https://github.com/nette/web-project/tree/minimal).
+Alternatively you can also use [Docker](https://www.docker.com/) for local development:
+
+	composer run dev
+
+Then, open `http://localhost` in your browser to view the welcome page.
+
+Vite
+----------------
+
+This Web Project also includes [@contributte/vite](https://github.com/contributte/vite) for seamless frontend development.
+Node.js is required, after that you can run following commands:
+
+[Node.js](https://nodejs.org) is required, to install the dependencies run:
+
+	npm install
+
+To run Vite run:
+
+	npm run dev
+
+To build Vite run:
+
+	npm run build
