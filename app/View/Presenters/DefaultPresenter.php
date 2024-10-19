@@ -8,7 +8,6 @@ use App\Core\ConfigFactory;
 use Nette;
 use Nette\Application\Helpers;
 
-
 class DefaultPresenter extends Nette\Application\UI\Presenter
 {
     /** @inject */

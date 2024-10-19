@@ -10,7 +10,7 @@ class Bootstrap
 {
     public static function boot(): Configurator
     {
-        $configurator = new Configurator;
+        $configurator = new Configurator();
         $rootDir = dirname(__DIR__);
         $debug = getenv('NETTE_DEBUG');
 
