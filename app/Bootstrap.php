@@ -14,7 +14,7 @@ class Bootstrap
         $rootDir = dirname(__DIR__);
         $debug = getenv('NETTE_DEBUG');
 
-        $configurator->setDebugMode($debug && strtolower($debug) === 'true' ?: $debug);
+        $configurator->setDebugMode(filter_var($debug, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? $debug);
         $configurator->enableTracy($rootDir . '/log');
 
         $configurator->setTempDirectory($rootDir . '/temp');

@@ -1,35 +1,35 @@
 parameters:
     rootDir: %appDir%/..
-    srcDir: %appDir%/../src
-    srcViewsDir: %appDir%/../src/views
-    srcLayoutsDir: %appDir%/../src/views/layouts
-    srcPresentersDir: %appDir%/../src/views/presenters
-    srcComponentsDir: %appDir%/../src/views/presenters
+    srcDir: %rootDir%/src
+    srcViewsDir: %srcDir%/views
+    srcLayoutsDir: %srcViewsDir%/layouts
+    srcPresentersDir: %srcViewsDir%/presenters
+    srcComponentsDir: %srcViewsDir%/components
 
 application:
-	errorPresenter:
-		4xx: Error4xx
-		5xx: Error5xx
-	mapping: App\View\Presenters\*Presenter
+    errorPresenter:
+        4xx: Error4xx
+        5xx: Error5xx
+    mapping: App\View\Presenters\*Presenter
 
 database:
-	dsn: 'sqlite::memory:'
-	user:
-	password:
+    dsn: 'sqlite::memory:'
+    user:
+    password:
 
 extensions:
-	vite: Contributte\Vite\Nette\Extension
+    vite: Contributte\Vite\Nette\Extension
 
 vite:
     manifestFile: %wwwDir%/manifest.json
 
 latte:
-	strictTypes: yes
-	strictParsing: yes
-	extensions:
-		- App\View\Extensions\LatteExtension
+    strictTypes: yes
+    strictParsing: yes
+    extensions:
+        - App\View\Extensions\LatteExtension
 
 
 di:
-	export:
-		tags: no
+    export:
+        tags: no

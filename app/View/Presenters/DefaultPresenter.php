@@ -7,10 +7,11 @@ namespace App\View\Presenters;
 use App\Core\ConfigFactory;
 use Nette;
 use Nette\Application\Helpers;
+use Nette\DI\Attributes\Inject;
 
 class DefaultPresenter extends Nette\Application\UI\Presenter
 {
-    /** @inject */
+    #[Inject]
     public ConfigFactory $config;
 
     public function formatTemplateFiles(): array
