@@ -6,6 +6,7 @@
 	"license": ["MIT", "BSD-3-Clause", "GPL-2.0-only", "GPL-3.0-only"],
 	"scripts": {
 		"post-install-cmd": "chmod 777 temp && chmod 777 log",
+		"dev": "docker compose up",
 		"pint": "./vendor/bin/pint",
 		"phpstan": "vendor/bin/phpstan analyse www app --level max"
 	},
@@ -23,7 +24,8 @@
 		"nette/security": "^3.2",
 		"nette/utils": "^4.0",
 		"latte/latte": "^3.0",
-		"tracy/tracy": "^2.10"
+		"tracy/tracy": "^2.10",
+		"contributte/vite": "^0.2.0"
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",

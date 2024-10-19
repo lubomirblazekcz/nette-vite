@@ -28,6 +28,7 @@ export default {
         outDir: "www",
         emptyOutDir: false,
         modulePreload: false,
+        assetsInlineLimit: 0,
         rollupOptions: {
             input: FastGlob.sync(['./src/scripts/*.js', './src/styles/*.css'])
                 .map(entry => resolve(process.cwd(), entry))

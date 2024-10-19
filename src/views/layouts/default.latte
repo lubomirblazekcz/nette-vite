@@ -5,6 +5,13 @@
 	<meta name="viewport" content="width=device-width">
 
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+
+	{if $vite->isEnabled()}
+		<script type="module" src="{='@vite/client'|vite}"></script>
+	{/if}
+
+	<link rel="stylesheet" href="{='src/styles/main.css'|vite}">
+	<script src="{='src/scripts/main.js'|vite}" type="module"></script>
 </head>
 
 <body>

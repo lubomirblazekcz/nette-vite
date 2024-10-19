@@ -4,8 +4,88 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05c2e4b836879e0728a8f36d9a63891e",
+    "content-hash": "067e955e547f82a37f9c8919c4bdb207",
     "packages": [
+        {
+            "name": "contributte/vite",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contributte/vite.git",
+                "reference": "f2dadc103b890759d2498b075155abbb837ecbad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contributte/vite/zipball/f2dadc103b890759d2498b075155abbb837ecbad",
+                "reference": "f2dadc103b890759d2498b075155abbb837ecbad",
+                "shasum": ""
+            },
+            "require": {
+                "nette/application": "^3.0.8",
+                "nette/di": "^3.1.8",
+                "nette/safe": "^0.9",
+                "php": ">=8.1",
+                "tracy/tracy": "^2.10.5"
+            },
+            "require-dev": {
+                "contributte/phpstan": "^0.1",
+                "contributte/qa": "^0.4",
+                "contributte/tester": "^0.3",
+                "latte/latte": "^3.0.12"
+            },
+            "suggest": {
+                "latte/latte": "to enable Latte integration via {vite} macro",
+                "tracy/tracy": "to enable asset debugging in the debug bar panel"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Contributte\\Vite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lubomír Blažek",
+                    "email": "email@lubomirblazek.cz",
+                    "homepage": "https://lubomirblazek.cz"
+                },
+                {
+                    "name": "Milan Matějček",
+                    "email": "milan.matejcek@gmail.com"
+                }
+            ],
+            "description": "Vite integration for Nette Framework.",
+            "homepage": "https://github.com/contributte/vite",
+            "keywords": [
+                "nette",
+                "vite"
+            ],
+            "support": {
+                "email": "email@lubomirblazek.cz",
+                "issues": "https://github.com/contributte/vite/issues",
+                "source": "https://github.com/contributte/vite/tree/v0.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://contributte.org/partners.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/f3l1x",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-01-04T21:28:35+00:00"
+        },
         {
             "name": "latte/latte",
             "version": "v3.0.20",
@@ -1042,6 +1122,69 @@
                 "source": "https://github.com/nette/routing/tree/v3.1.0"
             },
             "time": "2024-01-21T21:13:45+00:00"
+        },
+        {
+            "name": "nette/safe",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/safe.git",
+                "reference": "8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/safe/zipball/8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf",
+                "reference": "8ebf13bdcd5e0ae5394671afa3a6deae70dc01cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "nette/tester": "^2.2",
+                "phpstan/phpstan": "^0.12",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛡 PHP functions rewritten to throw exceptions instead of returning false or triggering errors.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "errors",
+                "exceptions",
+                "nette",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/safe/issues",
+                "source": "https://github.com/nette/safe/tree/v0.9"
+            },
+            "time": "2019-12-11T17:44:10+00:00"
         },
         {
             "name": "nette/schema",

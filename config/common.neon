@@ -17,6 +17,11 @@ database:
 	user:
 	password:
 
+extensions:
+	vite: Contributte\Vite\Nette\Extension
+
+vite:
+    manifestFile: %wwwDir%/manifest.json
 
 latte:
 	strictTypes: yes
