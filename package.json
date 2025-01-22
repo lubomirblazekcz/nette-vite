@@ -8,12 +8,12 @@
   "dependencies": {
     "naja": "^3.2.1",
     "nette-forms": "^3",
-    "tailwindcss": "^4.0.0-alpha.28"
+    "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/language-server": "^0.0.25",
-    "@tailwindcss/vite": "^4.0.0-alpha.28",
+    "@tailwindcss/language-server": "^0.14.1",
+    "@tailwindcss/vite": "^4.0.0",
     "fast-glob": "^3",
-    "vite": "^5"
+    "vite": "^6"
   }
 }
