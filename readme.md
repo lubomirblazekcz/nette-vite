@@ -34,12 +34,12 @@ This project supports Vite for asset building, which is recommended but optional
 
 Set up and build the assets:
 
-		npm install
-		npm run build
+    npm install
+    npm run build
 
 Or run the dev server:
 
-		npm run dev
+    npm run dev
 
 
 Web Server Setup

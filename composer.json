@@ -34,12 +34,13 @@
 	},
 	"scripts": {
 		"post-install-cmd": "chmod 777 temp && chmod 777 log",
+		"no-timeout": "Composer\\Config::disableProcessTimeout",
 		"dev": [
-			"Composer\\Config::disableProcessTimeout",
+			"@no-timeout",
 			"export NETTE_DEBUG=true && php -S localhost:8000 -t www"
 		],
 		"preview": [
-			"Composer\\Config::disableProcessTimeout",
+			"@no-timeout",
 			"export NETTE_DEBUG=false && php -S localhost:8000 -t www"
 		],
 		"pint": "pint",
