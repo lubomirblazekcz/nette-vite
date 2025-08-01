@@ -18,9 +18,11 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
     {
         [, $presenter] = Helpers::splitName($this->getName() ?? '');
 
+        $view = $presenter . ucfirst($this->view);
+
         return [
-            $this->config->parameters['viewsPresentersDir'] . "/$presenter/$this->view.latte",
-            $this->config->parameters['viewsPresentersDir'] . "/$presenter.$this->view.latte",
+            $this->config->parameters['viewsPresentersDir'] . "/$presenter/$view.latte",
+            $this->config->parameters['viewsPresentersDir'] . "/$view.latte",
         ];
     }
 
