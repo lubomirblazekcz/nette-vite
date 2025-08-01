@@ -1,4 +1,4 @@
-Nette Vite
+Nette Vite Skeleton
 =================
 
 Welcome to the Nette Web Project! This is a basic skeleton application built using
@@ -27,6 +27,21 @@ follow [these instructions](https://doc.nette.org/composer). Then, run:
 	composer install
 
 
+Asset Building with Vite
+------------------------
+
+This project supports Vite for asset building, which is recommended but optional. To activate Vite:
+
+Set up and build the assets:
+
+		npm install
+		npm run build
+
+Or run the dev server:
+
+		npm run dev
+
+
 Web Server Setup
 ----------------
 
@@ -40,31 +55,3 @@ For Apache or Nginx users, configure a virtual host pointing to your project's `
 
 **Important Note:** Ensure `app/`, `config/`, `log/`, and `temp/` directories are not web-accessible.
 Refer to [security warning](https://nette.org/security-warning) for more details.
-
-
-Docker
-----------------
-
-Alternatively you can also use [Docker](https://www.docker.com/) for local development:
-
-	docker compose up
-
-Then, open `http://localhost` in your browser to view the welcome page.
-
-Vite
-----------------
-
-This Web Project also includes [@contributte/vite](https://github.com/contributte/vite) for seamless frontend development.
-Node.js is required, after that you can run following commands:
-
-[Node.js](https://nodejs.org) is required, to install the dependencies run:
-
-	npm install
-
-To run Vite run:
-
-	npm run dev
-
-To build Vite run:
-
-	npm run build

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Presenters;
+namespace App\Presentation\Presenters\Error\Error4xx;
 
 use App\Core\ConfigFactory;
 use Nette;
@@ -11,6 +11,7 @@ use Nette\Bridges\ApplicationLatte\Template;
 use Nette\DI\Attributes\Inject;
 
 /**
+ * Handles 4xx HTTP error responses.
  * @property-read Template $template
  * @property int $httpCode
  */
@@ -24,12 +25,9 @@ final class Error4xxPresenter extends Nette\Application\UI\Presenter
     {
         // renders the appropriate error template based on the HTTP status code
         $code = $exception->getCode();
-
-        // load template 403.latte or 404.latte or ... 4xx.latte
-        $file = $this->config->parameters['srcPresentersDir'] . '/Error/Error4xx/' . $code . '.latte';
-        $this->template->setFile(is_file($file) ? $file : $this->config->parameters['srcPresentersDir'] . '/Error/Error4xx/4xx.latte');
+        $file = $this->config->parameters['viewsPresentersDir'] . '/Error/Error4xx/' . $code . '.latte';
 
         $this->template->httpCode = $code;
-        $this->template->setFile($file);
+        $this->template->setFile(is_file($file) ? $file : $this->config->parameters['viewsPresentersDir'] . '/Error/Error4xx/4xx.latte');
     }
 }

@@ -1,7 +1,5 @@
 .DS_Store
 .idea
-.docker
 vendor
 node_modules
 www/assets
-www/manifest.json

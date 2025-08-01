@@ -1,2 +1,10 @@
+parameters:
+	level: max
+
+	paths:
+		- app
+		- bin
+		- tests
+
 includes:
-    - vendor/phpstan/phpstan-nette/extension.neon
+	- vendor/phpstan/phpstan-nette/extension.neon

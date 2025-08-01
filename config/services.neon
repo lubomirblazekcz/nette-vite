@@ -4,8 +4,11 @@ services:
     )
     - App\Core\RouterFactory::createRouter
 
+
 search:
-    - in: %appDir%
-      classes:
-        - *Factory
-        - *Facade
+	-	in: %appDir%
+		classes:
+			- *Facade
+			- *Factory
+			- *Repository
+			- *Service

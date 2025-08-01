@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Presenters;
+namespace App\Presentation\Presenters\Error\Error5xx;
 
 use App\Core\ConfigFactory;
 use Nette;
@@ -18,7 +18,7 @@ use Tracy\ILogger;
 final class Error5xxPresenter implements Nette\Application\IPresenter
 {
     public function __construct(
-        private readonly ILogger $logger,
+        private ILogger $logger,
         private readonly ConfigFactory $config
     ) {
     }
@@ -33,7 +33,7 @@ final class Error5xxPresenter implements Nette\Application\IPresenter
         // Display a generic error message to the user
         return new Responses\CallbackResponse(function (Http\IRequest $httpRequest, Http\IResponse $httpResponse): void {
             if (preg_match('#^text/html(?:;|$)#', (string) $httpResponse->getHeader('Content-Type'))) {
-                require $this->config->parameters['srcPresentersDir'] . '/Error/Error5xx/500.phtml';
+                require $this->config->parameters['viewsPresentersDir'] . '/Error/Error5xx/500.phtml';
             }
         });
     }

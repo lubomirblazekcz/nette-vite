@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Extensions;
+namespace App\Presentation\Accessories;
 
 use Latte\Extension;
 

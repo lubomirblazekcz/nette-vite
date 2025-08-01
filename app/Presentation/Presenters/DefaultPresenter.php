@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\View\Presenters;
+namespace App\Presentation\Presenters;
 
 use App\Core\ConfigFactory;
 use Nette;
@@ -19,8 +19,8 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
         [, $presenter] = Helpers::splitName($this->getName() ?? '');
 
         return [
-            $this->config->parameters['srcPresentersDir'] . "/$presenter/$this->view.latte",
-            $this->config->parameters['srcPresentersDir'] . "/$presenter.$this->view.latte",
+            $this->config->parameters['viewsPresentersDir'] . "/$presenter/$this->view.latte",
+            $this->config->parameters['viewsPresentersDir'] . "/$presenter.$this->view.latte",
         ];
     }
 
@@ -28,7 +28,7 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
     {
 
         $layout = $this->layout ?: 'default';
-        $list[] = $this->config->parameters['srcLayoutsDir'] . "/$layout.latte";
+        $list[] = $this->config->parameters['viewsLayoutsDir'] . "/$layout.latte";
 
         return $list;
     }

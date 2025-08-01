@@ -4,28 +4,48 @@ declare(strict_types=1);
 
 namespace App;
 
+use Nette;
 use Nette\Bootstrap\Configurator;
 
 class Bootstrap
 {
-    public static function boot(): Configurator
+    private Configurator $configurator;
+    private string $rootDir;
+    private string|false $debug;
+
+
+    public function __construct()
     {
-        $configurator = new Configurator();
-        $rootDir = dirname(__DIR__);
-        $debug = getenv('NETTE_DEBUG');
+        $this->rootDir = dirname(__DIR__);
+        $this->configurator = new Configurator();
+        $this->configurator->setTempDirectory($this->rootDir . '/temp');
+        $this->debug = getenv('NETTE_DEBUG');
+    }
 
-        $configurator->setDebugMode(filter_var($debug, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? $debug);
-        $configurator->enableTracy($rootDir . '/log');
 
-        $configurator->setTempDirectory($rootDir . '/temp');
+    public function bootWebApplication(): Nette\DI\Container
+    {
+        $this->initializeEnvironment();
+        $this->setupContainer();
+        return $this->configurator->createContainer();
+    }
 
-        $configurator->createRobotLoader()
+
+    public function initializeEnvironment(): void
+    {
+        $this->configurator->setDebugMode(filter_var($this->debug, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? $this->debug);
+        $this->configurator->enableTracy($this->rootDir . '/log');
+
+        $this->configurator->createRobotLoader()
             ->addDirectory(__DIR__)
             ->register();
+    }
 
-        $configurator->addConfig($rootDir . '/config/common.neon');
-        $configurator->addConfig($rootDir . '/config/services.neon');
 
-        return $configurator;
+    private function setupContainer(): void
+    {
+        $configDir = $this->rootDir . '/config';
+        $this->configurator->addConfig($configDir . '/common.neon');
+        $this->configurator->addConfig($configDir . '/services.neon');
     }
 }

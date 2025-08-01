@@ -1,19 +1,17 @@
 {
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "naja": "^3.2.1",
-    "nette-forms": "^3",
-    "tailwindcss": "^4.0.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/language-server": "^0.14.1",
-    "@tailwindcss/vite": "^4.0.0",
-    "fast-glob": "^3",
-    "vite": "^6"
-  }
+	"type": "module",
+	"dependencies": {
+		"nette-forms": "^3.3",
+		"tailwindcss": "^4.1",
+		"naja": "^3.2"
+	},
+	"devDependencies": {
+		"@nette/vite-plugin": "^1.0.1",
+		"@tailwindcss/vite": "^4.1.11",
+		"vite": "^6.3.5"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build"
+	}
 }
