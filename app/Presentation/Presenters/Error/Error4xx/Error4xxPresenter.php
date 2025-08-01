@@ -25,9 +25,10 @@ final class Error4xxPresenter extends Nette\Application\UI\Presenter
     {
         // renders the appropriate error template based on the HTTP status code
         $code = $exception->getCode();
-        $file = $this->config->parameters['viewsPresentersDir'] . '/Error/Error4xx/Error' . $code . '.latte';
+        $dir = $this->config->parameters['viewsPresentersDir'] ?? null;
+        $file = (is_string($dir) ? $dir : __DIR__) . '/Error/Error4xx/Error' . $code . '.latte';
 
         $this->template->httpCode = $code;
-        $this->template->setFile(is_file($file) ? $file : $this->config->parameters['viewsPresentersDir'] . '/Error/Error4xx/Error4xx.latte');
+        $this->template->setFile(is_file($file) ? $file : (is_string($dir) ? $dir : __DIR__) . '/Error/Error4xx/Error4xx.latte');
     }
 }
