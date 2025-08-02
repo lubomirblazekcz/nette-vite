@@ -38,7 +38,7 @@ class DefaultPresenter extends Nette\Application\UI\Presenter
             return parent::formatLayoutTemplateFiles();
         }
 
-        $list[] = "/$dir$layout.latte";
+        $list[] = "/$dir/$layout.latte";
 
         return $list;
     }
